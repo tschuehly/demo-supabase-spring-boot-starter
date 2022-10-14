@@ -1,0 +1,14 @@
+spring:
+  thymeleaf: # Thymeleaf
+    cache: false
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
+
+supabase:
+  projectId: eyxbhhammxxopyqgwvej
+  anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5eGJoaGFtbXh4b3B5cWd3dmVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjU1NjIwMjcsImV4cCI6MTk4MTEzODAyN30.bU1XIurIVzafIam782e67RlwqCVdQlloI_a5vorg3HY
+  databasePassword: Immersion4-Consonant-Fritter-Unspoiled
