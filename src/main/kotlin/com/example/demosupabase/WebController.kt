@@ -15,4 +15,9 @@ class WebController {
         println(SecurityContextHolder.getContext().authentication)
         return "account"
     }
+
+    @GetMapping("/error")
+    fun unauthorized(): String{
+        return "/403"
+    }
 }
