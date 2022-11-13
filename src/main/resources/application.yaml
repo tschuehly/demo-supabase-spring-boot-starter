@@ -7,9 +7,29 @@ spring:
       static-locations: file:src/main/resources/static/
       cache:
         period: 0
-
+logging:
+  level:
+    org.springframework.security: debug
 supabase:
   projectId: eyxbhhammxxopyqgwvej
   anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5eGJoaGFtbXh4b3B5cWd3dmVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjU1NjIwMjcsImV4cCI6MTk4MTEzODAyN30.bU1XIurIVzafIam782e67RlwqCVdQlloI_a5vorg3HY
   databasePassword: Immersion4-Consonant-Fritter-Unspoiled
   jwtSecret: VhLI85yN/oF3Eu95epgHOeg/iRIGiJtk2PWyCyCdORRuVVW90wToyJcJXZcHuHZ2dh7qVgH0UMjqbq1gGMF6JQ==
+  public:
+    get:
+      - "/"
+      - "/logout"
+      - "/login"
+      - "/403"
+      - "/favicon.ico"
+      - "/error"
+      - "/resetPassword"
+    post:
+      - "/api/user/register"
+      - "/api/user/login"
+      - "/api/user/jwt"
+      - "/api/user/sendPasswordResetEmail"
+  roles:
+    admin:
+      get:
+        - "/admin"

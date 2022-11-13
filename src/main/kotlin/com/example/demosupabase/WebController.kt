@@ -16,8 +16,23 @@ class WebController {
         return "account"
     }
 
+    @GetMapping("/admin")
+    fun admin(): String {
+        return "admin"
+    }
+
     @GetMapping("/error")
-    fun unauthorized(): String{
+    fun unauthorized(): String {
         return "/403"
+    }
+
+    @GetMapping("/updatePassword")
+    fun updatePassword(): String {
+        return "updatePassword"
+    }
+
+    @GetMapping("/resetPassword")
+    fun resetPassword(): String {
+        return "resetPassword"
     }
 }

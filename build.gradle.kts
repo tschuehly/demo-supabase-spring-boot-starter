@@ -13,6 +13,7 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -24,7 +25,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("io.supabase:supabase-spring-boot-starter:0.0.1-SNAPSHOT")
+    implementation("io.supabase:supabase-spring-boot-starter")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 }
 
