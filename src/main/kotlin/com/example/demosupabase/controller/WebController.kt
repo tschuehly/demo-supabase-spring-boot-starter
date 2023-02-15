@@ -1,4 +1,4 @@
-package com.example.demosupabase
+package com.example.demosupabase.controller
 
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Controller
@@ -26,13 +26,18 @@ class WebController {
         return "/403"
     }
 
+    @GetMapping("/notAuthenticated")
+    fun unauthenticated(): String {
+        return "/unauthenticated"
+    }
+
     @GetMapping("/updatePassword")
     fun updatePassword(): String {
         return "updatePassword"
     }
 
-    @GetMapping("/resetPassword")
-    fun resetPassword(): String {
-        return "resetPassword"
+    @GetMapping("/requestPasswordReset")
+    fun requestPasswordReset(): String {
+        return "requestPasswordReset"
     }
 }

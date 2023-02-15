@@ -5,21 +5,22 @@
 <head>
     <script src="https://unpkg.com/htmx.org@1.6.1"></script>
     <title>Supabase Auth</title>
+    <link href="/img/favicon.ico" rel="icon" type="image/x-icon">
 </head>
 <body>
 <h1>
     Index
 </h1>
 
-<a href="/account">Account Page</a>
+<div sec:authorize="!hasRole('ROLE_ANONYMOUS')">
+    <a href="/account">Account Page</a>
+</div>
 
-<h2 th:text="${#authentication }">
-    Sign In
-</h2>
-<h2 th:text="${#authorization}">
-    Sign In
-</h2>
 <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+
+    <h2>
+        Login
+    </h2>
     <form>
         <label>Email:
             <input type="text" name="email"/>
@@ -45,16 +46,27 @@
 
 </div>
 
-<a href="/resetPassword">Reset Password</a>
+<div style="display: flex; flex-direction: column; gap: 1rem">
+    <a href="/resetPassword">Reset Password</a>
 
-<a href="https://eyxbhhammxxopyqgwvej.supabase.co/auth/v1/authorize?provider=google">Sign In with Google</a>
+    <a href="https://eyxbhhammxxopyqgwvej.supabase.co/auth/v1/authorize?provider=google">Sign In with Google</a>
+
+    <div sec:authorize="!hasRole('ROLE_ANONYMOUS')">
+        <h2>
+            <button hx-get="/api/user/logout">Logout</button>
+        </h2>
+    </div>
+
+
+    <h2>Authentication Object:</h2>
+    <h3 th:text="${#authentication }">
+        Sign In
+    </h3>
+</div>
 
 </body>
-<div sec:authorize="!hasRole('ROLE_ANONYMOUS')">
-    <h2>
-        <button hx-get="/api/user/logout">Logout</button>
-    </h2>
-</div>
+
+
 <script>
     if (window.location.hash.startsWith("#access_token")) {
         htmx.ajax('POST', '/api/user/jwt', {target: '#body', swap: 'outerHTML'})

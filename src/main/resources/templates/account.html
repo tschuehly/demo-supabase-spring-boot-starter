@@ -8,13 +8,14 @@
     <script src="https://unpkg.com/htmx.org@1.6.1"></script>
     <title>Title</title>
 </head>
-Logged user: <span th:text="${#authentication.name}"></span>
 <body>
-<h1>You are authenticated</h1>
+<h1>You are authenticated as:</h1>
 <div sec:authorize="hasRole('ROLE_ADMIN')">
     <a href="/admin">Admin Page</a>
-
 </div>
+User Details:<span th:text="${#authentication.name}"></span>
+
+
 <form>
     <label>User Id
         <input name="userId" type="text">
@@ -25,7 +26,14 @@ Logged user: <span th:text="${#authentication.name}"></span>
     <label>User Role
         <input name="roles" type="checkbox" value="user"/>
     </label>
-    <button hx-put="/api/user/setRoles">Submit</button>
+    <button hx-put="/api/user/setRoles" hx-target="#response">Submit</button>
 </form>
+
+<h2>
+    <button hx-get="/api/user/logout">Logout</button>
+</h2>
+<div id="response">
+
+</div>
 </body>
 </html>
