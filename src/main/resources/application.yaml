@@ -31,7 +31,8 @@ supabase:
       - "/img/**"
       - "/error"
       - "/resetPassword"
-      - "/notAuthenticated"
+      - "/unauthenticated"
+      - "/unauthorized"
     post:
       - "/api/user/register"
       - "/api/user/login"

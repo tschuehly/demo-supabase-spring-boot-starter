@@ -1,7 +1,9 @@
 package com.example.demosupabase.controller
 
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.servlet.ModelAndView
 
 @Controller
 class WebController {
@@ -19,12 +21,13 @@ class WebController {
     }
 
     @GetMapping("/unauthenticated")
-    fun unauthenticated(): String {
-        return "/unauthenticated"
+    fun unauthenticated(): ModelAndView {
+        return ModelAndView("/unauthenticated", HttpStatus.FORBIDDEN)
     }
+
     @GetMapping("/unauthorized")
-    fun unauthorized(): String {
-        return "/unauthorized"
+    fun unauthorized(): ModelAndView {
+        return ModelAndView("/unauthorized", HttpStatus.FORBIDDEN)
     }
 
     @GetMapping("/updatePassword")
