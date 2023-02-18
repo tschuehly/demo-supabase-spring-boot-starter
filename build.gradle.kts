@@ -17,6 +17,9 @@ repositories {
 }
 
 dependencies {
+
+    implementation("io.supabase:supabase-spring-boot-starter")
+
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
@@ -25,7 +28,6 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    implementation("io.supabase:supabase-spring-boot-starter")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 }
 

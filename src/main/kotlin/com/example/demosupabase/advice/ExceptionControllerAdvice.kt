@@ -9,27 +9,27 @@ class ExceptionControllerAdvice(
 ) {
     @ExceptionHandler(InvalidLoginCredentialsException::class)
     fun handleInvalidLoginCredentialsException(exception: InvalidLoginCredentialsException): String {
-        return "account/login :: invalid-login-credentials"
+        return "info :: _(message='Your Login Credentials are invalid')"
     }
 
     @ExceptionHandler(UserNeedsToConfirmEmailBeforeLoginException::class)
     fun handleUserNeedsToConfirmEmail(): String {
-        return "account/login :: confirmation-needed-before-login"
+        return "info :: _(message='You need to confirm your email to login')"
     }
 
     @ExceptionHandler(SuccessfulRegistrationConfirmationEmailSentException::class)
     fun handleSuccessfulRegistration(exception: SuccessfulRegistrationConfirmationEmailSentException): String {
-        return "account/register :: email-confirmation-needed"
+        return "info :: _(message='Your successfully registered, we sent you an email to confirm')"
     }
 
     @ExceptionHandler(PasswordRecoveryEmailSent::class)
     fun handlePasswordRecoveryEmailSent(exception: Exception): String {
-        return "account/reset-password :: confirmation-needed-before-password-reset"
+        return "info :: _(message='We sent you a password recovery email')"
     }
 
     @ExceptionHandler(SuccessfulPasswordUpdate::class)
     fun handleSuccessfulPasswordUpdate(exception: Exception): String {
-        return "account/reset-password :: successful-password-update"
+        return "info :: _(message='Your password was successfully updated')"
     }
 
 }

@@ -9,14 +9,19 @@ spring:
         period: 0
 logging:
   level:
-    org.springframework.security: debug
+    org.springframework: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
 supabase:
-  projectId: eyxbhhammxxopyqgwvej
-  anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV5eGJoaGFtbXh4b3B5cWd3dmVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjU1NjIwMjcsImV4cCI6MTk4MTEzODAyN30.bU1XIurIVzafIam782e67RlwqCVdQlloI_a5vorg3HY
-  databasePassword: Immersion4-Consonant-Fritter-Unspoiled
-  jwtSecret: VhLI85yN/oF3Eu95epgHOeg/iRIGiJtk2PWyCyCdORRuVVW90wToyJcJXZcHuHZ2dh7qVgH0UMjqbq1gGMF6JQ==
+  projectId: jrwzknoawsweyfkpbizd
+  anonKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impyd3prbm9hd3N3ZXlma3BiaXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzY3MzQzMDAsImV4cCI6MTk5MjMxMDMwMH0.Bexiuih74rmWuRuzy126WxCwFVMvzb6BlbCQ8ZJyO1o
+  databasePassword: Angles_Wrecker_Curtsy9
+  jwtSecret: +jQOLR5dyMV98vgi62sdAHQ1ZPV7jmvhGqIzqKcAho0YjV6U+kaoVyAJgxATwDY/YX9cs43W/gTL5NHm55uWjg==
   successfulLoginRedirectPage: /account
   passwordRecoveryPage: /updatePassword
+  unauthenticatedPage: /unauthenticated
+  unauthorizedPage: /unauthorizedPage
+  sslOnly: false
+
   public:
     get:
       - "/"
